@@ -24,8 +24,8 @@ export default {
             students: []
         }
     },
-  async created() {
-      this.students = (await axios.get('http://localhost:3000/students')).data;
-  }
+    async created() {
+        this.students = (await axios.get('http://localhost:3000/students')).data;
+    }
 };
 </script>
