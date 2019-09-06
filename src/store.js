@@ -1,5 +1,5 @@
 export default {
     state : {
-        students: []
+        students: [], // a list of students
     }
 }
