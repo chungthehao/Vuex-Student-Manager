@@ -1,7 +1,9 @@
 <template>
   <v-flex sm8 offset-sm2>
+
+    {{ $store.getters.findStudent(2) }}
+
     <v-card>
-      {{students}}
       <v-toolbar dark>
         <v-toolbar-title>Students</v-toolbar-title>
       </v-toolbar>

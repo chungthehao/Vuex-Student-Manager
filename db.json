@@ -1,9 +1,9 @@
 {
   "students": [
     {
+      "id": 0,
       "firstName": "Alex",
-      "lastName": "Zanfir",
-      "id": 0
+      "lastName": "Zanfir"
     },
     {
       "firstName": "Jane",
@@ -12,7 +12,7 @@
     },
     {
       "firstName": "Kevin",
-      "lastName": "Bacon",
+      "lastName": "Bacon2",
       "id": 2
     }
   ]
