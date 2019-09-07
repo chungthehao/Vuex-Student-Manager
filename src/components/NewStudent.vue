@@ -9,7 +9,8 @@
           <v-container>
             <v-layout>
               <v-flex xs12 md4>
-                <v-text-field v-model="name" label="Name" required></v-text-field>
+                <v-text-field v-model="firstName" label="First Name" required></v-text-field>
+                <v-text-field v-model="lastName" label="Last Name" required></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>
@@ -27,18 +28,22 @@ import axios from "axios";
 import Students from "./Students";
 
 export default {
-  data() {
-    return {
-      name: ""
-    };
-  },
-  methods: {
-    async submit() {
-      axios.post("http://localhost:3000/students", { name: this.name });
-    }
-  },
   components: {
       Students
-  }
+  },
+
+  data() {
+    return {
+      firstName: "",
+      lastName: "",
+    };
+  },
+  
+  methods: {
+    async submit() {
+      axios.post("http://localhost:3000/students", { firstName: this.firstName, lastName: this.lastName });
+    }
+  },
+  
 };
 </script>
