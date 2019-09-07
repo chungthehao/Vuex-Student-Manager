@@ -18,15 +18,22 @@
 
 <script>
 import axios from "axios";
+import { mapState } from 'vuex';
 
 export default {
   data() {
     return {};
   },
-  computed: {
-    students() {
-      return this.$store.state.students;
-    }
-  },
+
+  // computed: {
+  //   students() {
+  //     return this.$store.state.students;
+  //   }
+  // },
+
+  computed: mapState({
+    // students: state => state.students // Cách 1
+    students: 'students' // Cách 2
+  })
 };
 </script>
