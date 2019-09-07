@@ -8,7 +8,7 @@
         <v-toolbar-title>Students</v-toolbar-title>
       </v-toolbar>
 
-      <div class="text-xs-center py-5" v-if=" ! $store.getters.isLoaded">
+      <div class="text-xs-center py-5" v-if=" ! isLoaded">
         <v-progress-circular
           :size="70"
           :width="7"
@@ -30,7 +30,7 @@
 
 <script>
 import axios from "axios";
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 
 export default {
   data() {
@@ -43,9 +43,14 @@ export default {
   //   }
   // },
 
-  computed: mapState({
-    // students: state => state.students // Cách 1
-    students: 'students' // Cách 2
-  })
+  computed: {
+    ...mapState({
+      // students: state => state.students // Cách 1
+      students: 'students' // Cách 2
+    }),
+    ...mapGetters({
+      isLoaded: 'isLoaded'
+    })
+  }
 };
 </script>

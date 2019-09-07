@@ -7,7 +7,7 @@
           <v-toolbar-title>Edit Student</v-toolbar-title>
         </v-toolbar>
 
-        <div class="text-xs-center py-5" v-if=" ! $store.getters.isLoaded">
+        <div class="text-xs-center py-5" v-if=" ! isLoaded">
           <v-progress-circular
             :size="70"
             :width="7"
@@ -47,6 +47,7 @@ export default {
   computed: {
     ...mapGetters({
       findStudent: 'findStudent',
+      isLoaded: 'isLoaded'
     }),
     // Ko để trong created hook, mà để ở computed để nó trigger khi data ở store đã về từ server
     student() {
