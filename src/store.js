@@ -13,6 +13,9 @@ export default new Vuex.Store({
             ...s,
             fullName: `${s.firstName} ${s.lastName}`
         })),
-        findStudent: state => id => state.students.find(s => s.id === Number(id))
+
+        findStudent: state => id => state.students.find(s => s.id === Number(id)),
+
+        isLoaded: state => !! state.students.length
     }
 })

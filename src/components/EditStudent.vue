@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div v-if="$store.getters.isLoaded">
     <v-flex sm8 offset-sm2>
+      <!-- {{ $store.getters.isLoaded }} -->
       <v-card>
         <v-toolbar dark>
           <v-toolbar-title>Edit Student</v-toolbar-title>

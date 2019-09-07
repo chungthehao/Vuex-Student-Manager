@@ -30,9 +30,10 @@ export default {
     };
   },
   async created() {
-    // Lúc này, sửa trực tiếp state trong store, lẽ ra phải qua mutations (commit)
+    // - Lúc này, sửa trực tiếp state trong store, lẽ ra phải qua mutations (commit)
     // (state trong store REACTIVE)
-    this.$store.state.students = (await axios.get('http://localhost:3000/students')).data;
+    // - Comment đoạn code dưới để giả sử server chậm hoặc data chưa về store,...
+    //this.$store.state.students = (await axios.get('http://localhost:3000/students')).data;
   }
 };
 </script>
