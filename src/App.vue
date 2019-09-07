@@ -33,7 +33,12 @@ export default {
     // - Lúc này, sửa trực tiếp state trong store, lẽ ra phải qua mutations (commit)
     // (state trong store REACTIVE)
     // - Comment đoạn code dưới để giả sử server chậm hoặc data chưa về store,...
-    this.$store.state.students = (await axios.get('http://localhost:3000/students')).data;
+
+    const res = await axios.get('http://localhost:3000/students');
+    const students = res.data;
+    this.$store.commit('SET_STUDENTS', students);
+
+    //this.$store.state.students = (await axios.get('http://localhost:3000/students')).data; // mutate the state in the store directly: bad practice
   }
 };
 </script>

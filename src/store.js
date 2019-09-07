@@ -17,5 +17,10 @@ export default new Vuex.Store({
         findStudent: state => id => state.students.find(s => s.id === Number(id)),
 
         isLoaded: state => !! state.students.length
+    },
+    mutations: {
+        SET_STUDENTS(state, students) {
+            state.students = students;
+        }
     }
 })
