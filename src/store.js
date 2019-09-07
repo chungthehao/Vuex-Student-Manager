@@ -21,6 +21,9 @@ export default new Vuex.Store({
     mutations: {
         SET_STUDENTS(state, students) {
             state.students = students;
+        },
+        ADD_STUDENT(state, newStudent) {
+            state.students.push(newStudent);
         }
     }
 })

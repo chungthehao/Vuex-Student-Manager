@@ -38,10 +38,16 @@ export default {
       lastName: "",
     };
   },
-  
+
   methods: {
     async submit() {
-      axios.post("http://localhost:3000/students", { firstName: this.firstName, lastName: this.lastName });
+      const res = await axios.post("http://localhost:3000/students", { firstName: this.firstName, lastName: this.lastName });
+      const newStudent = res.data;
+      this.$store.commit('ADD_STUDENT', newStudent);
+
+      // reset data
+      this.firstName = '';
+      this.lastName = '';
     }
   },
   
