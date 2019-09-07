@@ -16,29 +16,14 @@
       "id": 2
     },
     {
-      "firstName": "Henry",
-      "lastName": "Chung",
+      "firstName": "John",
+      "lastName": "Doe 1",
       "id": 3
     },
     {
-      "firstName": "John",
-      "lastName": "Doe",
-      "id": 4
-    },
-    {
-      "firstName": "Hao ",
+      "firstName": "Henry",
       "lastName": "Chung",
-      "id": 5
-    },
-    {
-      "firstName": "Hu",
-      "lastName": "Chay",
-      "id": 6
-    },
-    {
-      "firstName": "Handsome",
-      "lastName": "Boy",
-      "id": 7
+      "id": 4
     }
   ]
 }
