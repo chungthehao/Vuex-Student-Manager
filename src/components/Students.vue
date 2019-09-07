@@ -7,7 +7,17 @@
       <v-toolbar dark>
         <v-toolbar-title>Students</v-toolbar-title>
       </v-toolbar>
-      <v-list>
+
+      <div class="text-xs-center py-5" v-if=" ! $store.getters.isLoaded">
+        <v-progress-circular
+          :size="70"
+          :width="7"
+          color="purple"
+          indeterminate
+        ></v-progress-circular>
+      </div>
+
+      <v-list v-else>
         <v-list-tile v-for="(student, index) in $store.getters.students" :key="index" :to="'editStudent/' + index">
           <v-list-tile-content>
             <v-list-tile-title v-text="student.fullName"></v-list-tile-title>
