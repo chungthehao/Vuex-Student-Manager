@@ -13,11 +13,9 @@
 
 <script>
 import axios from 'axios';
-import store from './store';
 import NewStudent from "./components/NewStudent";
 import Students from "./components/Students";
 import EditStudent from "./components/EditStudent";
-
 
 export default {
   name: "App",
@@ -32,11 +30,9 @@ export default {
     };
   },
   async created() {
-    // 1. Để code query backend ở đây vì, component App này chỉ render 1 lần 
-    // 2. store.state.students lúc đầu là [], sau 1 tgian nó có data, nhưng các component đã load xong r.
-    // 3. Vì store.state.students ko phải props hay data nên khi nó thay đổi đâu trigger load lại
-    // 4. Đọc data từ store.state.student chỉ 1 lần ban đầu thôi (khi load component Students)
-    store.state.students = (await axios.get('http://localhost:3000/students')).data;
+    // Lúc này, sửa trực tiếp state trong store, lẽ ra phải qua mutations (commit)
+    // (state trong store REACTIVE)
+    this.$store.state.students = (await axios.get('http://localhost:3000/students')).data;
   }
 };
 </script>

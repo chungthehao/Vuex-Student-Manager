@@ -1,14 +1,15 @@
 import Vue from 'vue'
-import Veutify from 'vuetify'
+import Vuetify from 'vuetify'
 import App from './App.vue'
 import 'vuetify/dist/vuetify.min.css'
 import VueRouter from 'vue-router'
+import store from './store';
 
 import NewStudent from "./components/NewStudent";
 import Students from "./components/Students";
 import EditStudent from "./components/EditStudent";
 
-Vue.use(Veutify);
+Vue.use(Vuetify);
 Vue.use(VueRouter)
 
 const routes = [
@@ -19,8 +20,8 @@ const routes = [
 
 const router = new VueRouter({routes, mode: 'history'})
 
-
 new Vue({
+  store,
   router,
   render: h => h(App),
 }).$mount('#app')

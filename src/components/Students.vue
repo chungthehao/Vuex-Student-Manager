@@ -1,5 +1,5 @@
 <template>
- <v-flex sm8 offset-sm2>
+  <v-flex sm8 offset-sm2>
     <v-card>
       {{students}}
       <v-toolbar dark>
@@ -18,16 +18,15 @@
 
 <script>
 import axios from "axios";
-import store from '../store';
 
 export default {
-    data() {
-        return {
-            students: store.state.students
-        }
-    },
-    async created() {
-        // this.students = (await axios.get('http://localhost:3000/students')).data;
+  data() {
+    return {};
+  },
+  computed: {
+    students() {
+      return this.$store.state.students;
     }
+  },
 };
 </script>
