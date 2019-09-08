@@ -1,7 +1,7 @@
 {
   "students": [
     {
-      "firstName": "Alex 1",
+      "firstName": "Alex",
       "lastName": "Zanfir",
       "id": 0
     },
@@ -12,12 +12,12 @@
     },
     {
       "firstName": "Kevin",
-      "lastName": "Bacon2",
+      "lastName": "Bacon",
       "id": 2
     },
     {
       "firstName": "John",
-      "lastName": "Doe 1",
+      "lastName": "Doe",
       "id": 3
     },
     {
@@ -26,8 +26,8 @@
       "id": 4
     },
     {
-      "firstName": "Hao",
-      "lastName": "Chung",
+      "firstName": "Chung",
+      "lastName": "The Hao",
       "id": 5
     }
   ]

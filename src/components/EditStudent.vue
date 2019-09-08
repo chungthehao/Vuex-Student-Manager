@@ -20,8 +20,8 @@
           <v-container>
             <v-layout>
               <v-flex xs12 md4>
-                <v-text-field v-model="student.firstName" label="First Name" required></v-text-field>
-                <v-text-field v-model="student.lastName" label="Last Name" required></v-text-field>
+                <v-text-field :value="student.firstName" @input="update($event, 'firstName', student.id)" label="First Name" required></v-text-field>
+                <v-text-field :value="student.lastName" @input="update($event, 'lastName', student.id)" label="Last Name" required></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>
@@ -65,11 +65,19 @@ export default {
   },
 
   methods: {
-    async submit() {
-      axios.put(
-        `http://localhost:3000/students/${this.$route.params.id}`, 
-        { firstName: this.student.firstName, lastName: this.student.lastName }
-      );
+    submit() {
+      this.$store.dispatch('editStudent', { 
+        id: this.$route.params.id, 
+        studentData: { firstName: this.student.firstName, lastName: this.student.lastName } 
+      });
+    },
+    update(value, property, id) {
+      //console.log($event);
+      this.$store.commit('UPDATE_STUDENT', {
+        id,
+        property,
+        value //$event.target.value
+      });
     }
   },
   components: {
