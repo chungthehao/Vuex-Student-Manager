@@ -25,5 +25,12 @@ export default new Vuex.Store({
         ADD_STUDENT(state, newStudent) {
             state.students.push(newStudent);
         }
+    },
+    actions: {
+        async getStudents(context) {
+            const res = await axios.get('http://localhost:3000/students');
+            const students = res.data;
+            context.commit('SET_STUDENTS', students);
+        }
     }
 })
