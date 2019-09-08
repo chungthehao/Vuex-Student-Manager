@@ -4,10 +4,15 @@
       <v-btn flat to="/">Students List</v-btn>
       <v-btn flat to="/NewStudent">New Student</v-btn>
     </v-toolbar>
+
     <v-content>
       <br>
       <router-view />
     </v-content>
+
+    <v-snackbar v-model="showError">
+      {{errorText}}
+    </v-snackbar>
   </v-app>
 </template>
 
@@ -16,6 +21,7 @@ import axios from 'axios';
 import NewStudent from "./components/NewStudent";
 import Students from "./components/Students";
 import EditStudent from "./components/EditStudent";
+import { mapState } from 'vuex';
 
 export default {
   name: "App",
@@ -28,6 +34,9 @@ export default {
     return {
       //
     };
+  },
+  computed: {
+    ...mapState(['showError', 'errorText'])
   },
   created() {
     // - Lúc này, sửa trực tiếp state trong store, lẽ ra phải qua mutations (commit)

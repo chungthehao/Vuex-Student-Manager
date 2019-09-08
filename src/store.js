@@ -7,6 +7,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         students: [], // a list of students
+        showError: false,
+        errorText: 'This is an error!'
     },
     getters: {
         students: state => state.students.map(s => ({
@@ -28,13 +30,21 @@ export default new Vuex.Store({
         UPDATE_STUDENT(state, { id, property, value }) {
             const student = state.students.find(s => s.id === Number(id));
             student[property] = value;
+        },
+        SHOW_ERROR(state, msg) {
+            state.showError = true;
+            state.errorText = msg;
         }
     },
     actions: {
         async getStudents(context) {
-            const res = await axios.get('http://localhost:3000/students');
-            const students = res.data;
-            context.commit('SET_STUDENTS', students);
+            try {
+                const res = await axios.get('http://localhost:3000/students');
+                const students = res.data;
+                context.commit('SET_STUDENTS', students);
+            } catch (error) {
+                context.commit('SHOW_ERROR', error);
+            }
         },
         async submitNewStudent(context, newStudentData) {
             const res = await axios.post("http://localhost:3000/students", newStudentData);
