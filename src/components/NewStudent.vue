@@ -42,11 +42,8 @@ export default {
 
   methods: {
     ...mapMutations(['ADD_STUDENT']),
-    async submit() {
-      const res = await axios.post("http://localhost:3000/students", { firstName: this.firstName, lastName: this.lastName });
-      const newStudent = res.data;
-      // this.$store.commit('ADD_STUDENT', newStudent);
-      this.ADD_STUDENT(newStudent);
+    submit() {
+      this.$store.dispatch('submitNewStudent', { firstName: this.firstName, lastName: this.lastName });
 
       // reset data
       this.firstName = '';

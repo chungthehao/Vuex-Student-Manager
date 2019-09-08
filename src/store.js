@@ -31,6 +31,11 @@ export default new Vuex.Store({
             const res = await axios.get('http://localhost:3000/students');
             const students = res.data;
             context.commit('SET_STUDENTS', students);
+        },
+        async submitNewStudent(context, newStudentData) {
+            const res = await axios.post("http://localhost:3000/students", newStudentData);
+            const newStudentRecord = res.data;
+            context.commit('ADD_STUDENT', newStudentRecord);
         }
     }
 })
